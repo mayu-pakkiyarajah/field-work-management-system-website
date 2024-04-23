@@ -9,6 +9,8 @@ import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { LandingComponent } from './landing/landing.component';
+import {ProjectsComponent} from "./customer/projects/projects.component";
+import {FindComponent} from "./customer/find/find.component";
 
 
 export const routes: Routes = [
@@ -21,6 +23,16 @@ export const routes: Routes = [
       // {path: 'OTP-Verification', component:OTPVerificationComponent}
     ]
   },
+  {
+    path:'dashboard',
+    component: DashboardLayoutComponent,
+    canActivate: [RouteGuard],
+    children: [
+      {path: 'projects', component: ProjectsComponent},
+      {path: 'find', component: FindComponent},
+      {path: 'complaint', component: ComplaintComponent}
+    ]
+  },
       {
         path: "dashboard",
         component: DashboardLayoutComponent,
@@ -28,11 +40,10 @@ export const routes: Routes = [
         children: [
           {path: 'requests', component: WorkerRequestComponent},
           {path: 'fieldWorkers', component: WorkersComponent},
-          {path: 'users', component: UsersComponent},
-          {path: 'complaint', component: ComplaintComponent}
+          {path: 'users', component: UsersComponent}
         ]
       },
-  
+
       {path:'', component:LandingComponent, pathMatch:'full'},
       {path:'**',component:LoginComponent}
 ];
