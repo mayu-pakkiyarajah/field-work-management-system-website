@@ -6,6 +6,7 @@
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
+    "moduleResolution": "node",
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
@@ -13,8 +14,9 @@
     "sourceMap": true,
     "declaration": false,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
     "importHelpers": true,
+     
+    
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
@@ -23,6 +25,13 @@
       "dom"
     ]
   },
+  "include": [
+    "src/**/*.ts"
+, "src/Common/Common"  ],
+  "exclude": [
+    "node_modules"
+  ],
+
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
@@ -30,3 +39,4 @@
     "strictTemplates": true
   }
 }
+

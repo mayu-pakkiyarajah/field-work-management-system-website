@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {FormsModule} from "@angular/forms";
-import {CloudinaryModule} from '@cloudinary/ng';
+import {CloudinaryModule} from "@cloudinary/ng";
 
 @Component({
   selector: 'app-root',
@@ -20,3 +20,5 @@ export class AppComponent {
   title = 'HandyHero';
 
 }
+//Sugee
+
