@@ -10,6 +10,7 @@ export class RouteGuard implements CanActivate {
 
   canActivate(): boolean {
     const role = localStorage.getItem('role');
+    // const role = 'customer';
 
     if (role === 'customer' || role === 'fieldWorker' || role === 'admin') {
       return true;

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {Router, RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {FormsModule} from "@angular/forms";
-import {CloudinaryModule} from '@cloudinary/ng';
+import {CloudinaryModule} from "@cloudinary/ng";
 
 @Component({
   selector: 'app-root',
@@ -18,10 +18,6 @@ import {CloudinaryModule} from '@cloudinary/ng';
 })
 export class AppComponent {
   title = 'field-work-management-system-website';
-
-  constructor(private router:Router){}
-
-  goDashboard(){
-    this.router.navigate(['/dashboard']);
-  }
 }
+//Sugee
+
