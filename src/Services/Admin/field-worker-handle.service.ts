@@ -1,10 +1,5 @@
-
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import { InjectionToken } from '@angular/core';
-
-
-export const WORKER_HANDLE_TOKEN = new InjectionToken<FieldWorkerHandleService>('WorkerHandle');
 
 @Injectable({
   providedIn: 'root'
