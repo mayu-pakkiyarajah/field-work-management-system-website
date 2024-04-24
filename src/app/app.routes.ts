@@ -26,7 +26,7 @@ export const routes: Routes = [
   {
     path:'dashboard',
     component: DashboardLayoutComponent,
-    canActivate: [RouteGuard],
+    //canActivate: [RouteGuard],
     children: [
       {path: 'projects', component: ProjectsComponent},
       {path: 'find', component: FindComponent},
@@ -36,7 +36,7 @@ export const routes: Routes = [
       {
         path: "dashboard",
         component: DashboardLayoutComponent,
-        canActivate: [RouteGuard],
+        //canActivate: [RouteGuard],
         children: [
           {path: 'requests', component: WorkerRequestComponent},
           {path: 'fieldWorkers', component: WorkersComponent},

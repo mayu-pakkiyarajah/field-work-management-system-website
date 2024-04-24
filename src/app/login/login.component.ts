@@ -82,26 +82,15 @@ export class LoginComponent {
           localStorage.setItem('Id', response.body.id);
           if (response.status == 200){
             if (this.role == 'customer'){
-              localStorage.setItem('role',this.role)
-              this.router.navigate(['/dashboard/projects']).then(r => {
-                console.log('login success')
-              }).catch(error => {
-                console.log('Navigation failed', error);
-              })
-            }else if( this.role == 'fieldWorker'){
-              localStorage.setItem('role',this.role)
-              this.router.navigate(['/dashboard/projects']).then(r => {
-                console.log('login success')
-              }).catch(error => {
-                console.log('Navigation failed', error);
-              })            }
+              localStorage.setItem('role','customer')
+
+            }else if( this.role == 'fieldWorker') {
+              localStorage.setItem('role', 'fieldWorker')
+            }
             else {
               localStorage.setItem('role','admin')
-              this.router.navigate(['/dashboard/requests']).then(r => {
-                console.log('login success')
-              }).catch(error => {
-                console.log('Navigation failed', error);
-              })            }
+
+              }
           }else {
             alert("Login failed")
           }
