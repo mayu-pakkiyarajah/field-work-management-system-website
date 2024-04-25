@@ -24,7 +24,7 @@ export const routes: Routes = [
       {
         path: "dashboard",
         component: DashboardLayoutComponent,
-        canActivate: [RouteGuard],
+        //canActivate: [RouteGuard],
         children: [
           {path: 'requests', component: WorkerRequestComponent},
           {path: 'fieldWorkers', component: WorkersComponent},

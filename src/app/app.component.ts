@@ -19,5 +19,5 @@ import {CloudinaryModule} from "@cloudinary/ng";
 export class AppComponent {
   title = 'field-work-management-system-website';
 }
-//Sugee
+
 

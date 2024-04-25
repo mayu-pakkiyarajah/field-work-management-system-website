@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NgForOf} from "@angular/common";
-import {UsersService} from "../../../Services/Admin/users.service";
+
 import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
@@ -15,22 +15,14 @@ import {error} from "@angular/compiler-cli/src/transformers/util";
 export class UsersComponent implements OnInit{
   customers:any[] = [];
 
-  constructor(private users:UsersService) {
-  }
+   constructor() {
+   }
 
   ngOnInit() {
   this.loadUsers()
   }
 
   loadUsers(){
-    this.users.getUsers().subscribe(
-      (data: any) => {
-        this.customers = data.body
-        console.log(this.customers)
-      },
-      (error) => {
-        console.error("error while get customers : ", error)
-      }
-    )
+   
   }
 }
