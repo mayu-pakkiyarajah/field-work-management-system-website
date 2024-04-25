@@ -4,7 +4,6 @@ import {Router, RouterLink, RouterLinkActive} from "@angular/router";
 import {FormsModule, NgForm} from "@angular/forms";
 import {isEmpty} from "rxjs";
 import {AuthLayoutComponent} from "../auth-layout/auth-layout.component";
-import {LoginService} from "../../Services/Customer/login.service";
 
 
 @Component({
@@ -32,7 +31,7 @@ export class LoginComponent {
   passwordError = "";
   roleError = '';
 
-  constructor(private loginService: LoginService, private router: Router) {}
+  constructor( private router: Router) {}
 
   onEmailChange(event:any){
     this.email = event.target.value;
@@ -66,44 +65,6 @@ export class LoginComponent {
     }
   }
 
-  login()
-  {
-    if (
-      this.emailError.trim() == '' &&
-      this.passwordError.trim() == '' &&
-      this.roleError.trim() == ''
-    ){
-
-      this.loginService.login(this.email, this.password, this.role).subscribe(
-        (response) => {
-          console.log('login success', response);
-          console.log('Status Code:', response.status);
-          localStorage.setItem('token', response.body.token);
-          localStorage.setItem('Id', response.body.id);
-          if (response.status == 200){
-            if (this.role == 'customer'){
-              localStorage.setItem('role','customer')
-
-            }else if( this.role == 'fieldWorker') {
-              localStorage.setItem('role', 'fieldWorker')
-            }
-            else {
-              localStorage.setItem('role','admin')
-
-              }
-          }else {
-            alert("Login failed")
-          }
-        },
-        (error) => {
-          console.log('login failed', error)
-        }
-      );
-    }else {
-      console.log("Some errors there");
-      console.log(this.emailError);
-      console.log(this.passwordError);
-      console.log(this.roleError)
-    }
+  login() {
   }
 }

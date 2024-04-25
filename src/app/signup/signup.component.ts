@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {NgForOf, NgIf, NgStyle} from "@angular/common";
 import {Router, RouterLink, RouterLinkActive} from "@angular/router";
 import {FormsModule} from "@angular/forms";
-import {SignUpService} from "../../Services/sign-up.service";
+
 
 @Component({
   selector: 'app-signup',
@@ -53,7 +53,7 @@ export class SignupComponent {
   NICFile: File | undefined;
   profileFile: File | undefined;
 
-  constructor(private sign: SignUpService, private router:Router) {
+  constructor(private router:Router) {
   }
 
 
@@ -193,83 +193,7 @@ export class SignupComponent {
   }
 
   signup() {
-    if (this.role == 'customer') {
-      if (
-        this.nameError.trim() == '' &&
-        this.emailError.trim() == '' &&
-        this.phoneNumberError.trim() == '' &&
-        this.passwordError.trim() == '' &&
-        this.confirmPasswordError.trim() == '' &&
-        this.roleError.trim() == ''
-      ) {
-        let signupData = {
-          Name: this.name,
-          Email: this.email,
-          PhoneNumber: this.phoneNumber,
-          Password: this.password,
-        };
-        this.sign.customerSignup(signupData).subscribe(
-          response => {
-            alert("Your Account is created")
-            this.router.navigate(['auth/login'])
-          },
-          error => {
-            console.error("Error while customer creating account", error);
-          }
-        );
-      }
-    } else if (this.role == 'fieldWorker') {
-      if (
-        this.nameError.trim() == '' &&
-        this.emailError.trim() == '' &&
-        this.phoneNumberError.trim() == '' &&
-        this.passwordError.trim() == '' &&
-        this.confirmPasswordError.trim() == '' &&
-        this.roleError.trim() == '' &&
-        this.workTypeError.trim() == '' &&
-        this.dobError.trim() == ''
-      ) {
-        const formData = new FormData();
 
-        // Append other form data
-        formData.append('Name', this.name);
-        formData.append('Email', this.email);
-        formData.append('PhoneNumber', this.phoneNumber);
-        formData.append('Password', this.password);
-        formData.append('Role', this.role);
-        formData.append('WorkType', this.workType);
-        formData.append('DOB', this.dob);
-        formData.append('District', this.district);
-
-        if (this.certificatesFile) {
-          formData.append('certificates', this.certificatesFile);
-        }
-        if (this.experienceLettersFile) {
-          formData.append('experienceLetters', this.experienceLettersFile);
-        }
-        if (this.NICFile) {
-          formData.append('NIC', this.NICFile);
-        }
-        if (this.profileFile) {
-          formData.append('profile', this.profileFile);
-        }
-
-        this.sign.fieldWorkerSignup(formData).subscribe(
-          response => {
-            alert("Your Request is forwarded");
-            this.router.navigate(['auth/login'])
-          },
-          error => {
-            console.error("Error while field worker creating account", error);
-          }
-        );
-      }
-    } else {
-      console.log("Please select a valid user role");
-    }
   }
-
-
-
 
 }
