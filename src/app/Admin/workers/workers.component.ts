@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {FieldWorkersService} from "../../../Services/Admin/field-workers.service";
 import {NgForOf} from "@angular/common";
 
 @Component({
@@ -13,7 +12,7 @@ import {NgForOf} from "@angular/common";
 })
 export class WorkersComponent implements OnInit{
 
-  constructor(private fieldWorker: FieldWorkersService) {
+  constructor() {
   }
   fieldWorkers: any[] = [];
   ngOnInit() {
@@ -21,15 +20,7 @@ export class WorkersComponent implements OnInit{
   }
 
   loadFieldWorkers(){
-      this.fieldWorker.getAllWorkers().subscribe(
-        (data: any) => {
-          this.fieldWorkers = data.body
-          console.log(this.fieldWorkers);
-        },
-        error => {
-          console.error("Error While get FieldWorkers", error)
-        }
-      )
+      
   }
 }
 

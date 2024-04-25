@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { NgForOf } from "@angular/common";
 import { StarRatingComponent } from "../../star-rating/star-rating.component";
-import { FindWorkerService } from "../../../Services/Customer/find-worker.service";
+//import { FindWorkerService } from "../../../Services/Customer/find-worker.service";
 
 @Component({
   selector: 'app-find',
@@ -54,23 +54,14 @@ export class FindComponent implements OnInit {
   employees: any[] = [];
   employeesStatistic: any[] = [];
 
-  constructor(private findWorkerService: FindWorkerService) { }
+  constructor() { }
 
   ngOnInit() {
     this.loadWorkers();
   }
 
   loadWorkers() {
-    this.findWorkerService.getAllWorkers().subscribe(
-      (data: any[]) => {
-        this.employees = data.filter(worker => worker.status === 'true');
-        this.employeesStatistic = data.filter(worker => worker.status === 'true');
-        this.filterEmployees();
-      },
-      (error) => {
-        console.error("Error while getting workers", error);
-      }
-    );
+  
   }
 
   onDistrictSortChange(event: any) {
