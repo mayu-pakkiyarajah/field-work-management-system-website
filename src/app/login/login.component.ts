@@ -47,13 +47,15 @@ export class LoginComponent {
     }
   }
 
-  onPasswordChange(event: any){
+  onPasswordChange(event: any) {
     this.password = event.target.value;
-    if (this.password.trim() == ''){
-      this.passwordError = "Password is required field"
-    }else {
-      this.passwordError = '';
-    }
+    // if (this.password.trim() == '') {
+    //   this.passwordError = "Password is required field"
+    // } else {
+    //   this.passwordError = '';
+    // }
+
+    this.passwordError = this.password.trim() === '' ? "Password is required field" :'';
   }
 
   onRoleChange(event:any){
@@ -66,5 +68,6 @@ export class LoginComponent {
   }
 
   login() {
+
   }
 }

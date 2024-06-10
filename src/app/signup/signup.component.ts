@@ -43,17 +43,17 @@ export class SignupComponent {
   dobError = '';
   workTypeError = '';
   districtError = '';
-  certificateError='';
-  nicError='';
-  experienceLetterError='';
-  profilePhotoError='';
+  certificateError = '';
+  nicError = '';
+  experienceLetterError = '';
+  profilePhotoError = '';
 
   certificatesFile: File | undefined;
   experienceLettersFile: File | undefined;
   NICFile: File | undefined;
   profileFile: File | undefined;
 
-  constructor(private router:Router) {
+  constructor(private router: Router) {
   }
 
 
@@ -125,39 +125,39 @@ export class SignupComponent {
     }
   }
 
-  onDistrictChange(event: any){
+  onDistrictChange(event: any) {
     this.district = event.target.value;
-    if (this.district.trim() == ''){
+    if (this.district.trim() == '') {
       this.districtError = "Please enter valid district"
-    }else {
+    } else {
       this.district = "";
     }
   }
 
-  onDOBChange(event:any){
+  onDOBChange(event: any) {
     this.dob = event.target.value;
-    if (this.dob.trim() == ''){
+    if (this.dob.trim() == '') {
       this.dobError = "Please enter valid date"
-    }else {
+    } else {
       this.dobError = "";
     }
   }
 
-  onWorkTypeChange(event:any){
+  onWorkTypeChange(event: any) {
     this.workType = event.target.value;
-    if (this.workType.trim() == ''){
+    if (this.workType.trim() == '') {
       this.workTypeError = "Please select what type work you can"
-    }else {
+    } else {
       this.workTypeError = '';
     }
   }
 
   onProfilePhotoChange(event: any) {
     this.profileFile = event.target.files[0];
-    if (this.profileFile==null){
-      this.profilePhotoError="Please Enter The Valid Profile Photo"
-    }else{
-      this.profilePhotoError=""
+    if (this.profileFile == null) {
+      this.profilePhotoError = "Please Enter The Valid Profile Photo"
+    } else {
+      this.profilePhotoError = ""
     }
 
   }
@@ -165,35 +165,51 @@ export class SignupComponent {
   // Method to handle NIC file input change
   onNICChange(event: any) {
     this.NICFile = event.target.files[0];
-    if (this.NICFile==null){
-      this.nicError="Please Enter The Valid NIC Photo"
-    }else{
-      this.nicError=""
+    if (this.NICFile == null) {
+      this.nicError = "Please Enter The Valid NIC Photo"
+    } else {
+      this.nicError = ""
     }
   }
 
   // Method to handle certificates file input change
   onCertificatesChange(event: any) {
     this.certificatesFile = event.target.files[0];
-    if (this.certificatesFile==null){
-      this.certificateError="Please Enter The Valid Certificates"
-    }else{
-      this.certificateError=""
+    if (this.certificatesFile == null) {
+      this.certificateError = "Please Enter The Valid Certificates"
+    } else {
+      this.certificateError = ""
     }
   }
 
   // Method to handle experience letter file input change
   onExperienceLetterChange(event: any) {
     this.experienceLettersFile = event.target.files[0];
-    if (this.experienceLettersFile==null){
-      this.experienceLetterError="Please Enter The Valid Experience Letters"
-    }else{
-      this.experienceLetterError=""
+    if (this.experienceLettersFile == null) {
+      this.experienceLetterError = "Please Enter The Valid Experience Letters"
+    } else {
+      this.experienceLetterError = ""
     }
   }
 
   signup() {
+    if (this.role == 'customer') {
 
+    } else if (this.role == 'fieldWorker') {
+      {
+
+      }
+    } else {
+      console.log("Please select a valid user role");
+    }
   }
-
 }
+
+
+
+
+
+
+
+
+

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CardComponent} from "../../card/card.component";
 import {NgForOf} from "@angular/common";
-import {ProjectsService} from "../../../Services/Customer/projects.service";
+
 
 @Component({
   selector: 'app-projects',
@@ -18,7 +18,7 @@ export class ProjectsComponent implements OnInit{
   projects: any[] = [];
   projectsStatic: any[] = [];
 
-  constructor(private projectService: ProjectsService) {
+  constructor() {
   }
 
   ngOnInit() {
@@ -27,16 +27,6 @@ export class ProjectsComponent implements OnInit{
 
   loadProjects(){
     let userId = localStorage.getItem('Id');
-    this.projectService.getMyProjects(userId).subscribe(
-      (data) => {
-        console.log(data)
-        this.projects = data;
-        this.projectsStatic = data.slice();
-      },
-      (error) => {
-        console.log("error while getting projects : ", error);
-      }
-    )
   }
 
   searchWord = "";
